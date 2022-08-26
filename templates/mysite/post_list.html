@@ -1,0 +1,23 @@
+{% extends "mysite/base.html" %}
+
+{% block content %}
+  {% for object in object_list %}
+  <div class="container">
+    <article class="media content-section box-content h-50 w-50 p-5 border-1">
+      <img class= "w-10 h-10 md:h-auto rounded-full" src="{{object.author.profile.image.url}}" alt="">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="font-weight-bold mr-2" href="#">{{object.author}}</a>
+            <small class="text-muted">{{object.date_posted|date:"F d, Y"}}</small>
+          </div>
+          <h1 class="display-6" href="#"><strong><a>{{object.title}}</a></strong></h1>
+          <br></br>
+          <p>{{object.content}}
+
+        </div>
+
+    </article>
+
+  </div>
+    {% endfor %}
+  {% endblock content %}
